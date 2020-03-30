@@ -19,9 +19,11 @@ Explicaciones: Se llama al archivo, se corta todo despues del 3er | (donde se en
 ### ¿Cuál es el top 5 de estados por año?
 
 Respuesta: 2014 Nov = CA (California),FL (Florida),TX (Texas),WA (Washington),PA (Pensilvania)
+
            2014 Dic = CA (California),FL (Florida),WA (Washington),AZ (Arizona),NY (Nueva York)
 
 Comando utilizado: cat UFO-Nov-2014.tsv | cut -d'      ' -f1-3|rev | cut -d'   ' -f1|rev|sort | uniq -c | sort -nr | head  -5
+
                    cat UFO-Dic-2014.tsv | cut -d'      ' -f1-3|rev | cut -d'   ' -f1|rev|sort | uniq -c | sort -nr | head  -5
 
 Explicaciones: Mismo comando que antes, pero en cada archivo y ponendo tabuladores como parametros.
@@ -45,9 +47,11 @@ Explicaciones:
 ### ¿Cuál es el mes con más avistamientos? ¿El día de la semana?
 
 Respuesta: Mes con mas avistamientos: Noviembre
+
            Dia de la semana con mas avistamientos: Sabado
 
 Comando utilizado:    cat UFOS-Nov-Dic-2014.psv | cut -d'/' -f1|cut -d'|' -f1|sort | uniq -c | sort -nr | head  -1
+
                       cat UFOS-Nov-Dic-2014.psv | cut -d' ' -f1|cut -d'|' -f1| while read DATE TIME rest; do date --date="$DATE" +%A; done|sort | uniq -c | sort -nr | head  -1
 
 
