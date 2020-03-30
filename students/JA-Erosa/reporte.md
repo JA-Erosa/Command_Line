@@ -28,7 +28,7 @@ Explicaciones: Mismo comando que antes, pero en cada archivo y ponendo tabulador
 
 ### ¿Cuál es la racha más larga en días de avistamientos en un estado?
 
-Respuesta: 
+Respuesta: No se, sinceramente no me dio tiempo de investigar sobre el tema
 
 Comando utilizado: 
 
@@ -36,7 +36,7 @@ Explicaciones:
 
 ### ¿Cuál es la racha más larga en días de avistamientos en el país?
 
-Respuesta: 
+Respuesta: No se, sinceramente no me dio tiempo de investigar sobre el tema
 
 Comando utilizado: 
 
@@ -44,8 +44,12 @@ Explicaciones:
 
 ### ¿Cuál es el mes con más avistamientos? ¿El día de la semana?
 
-Respuesta: 
+Respuesta: Mes con mas avistamientos: Noviembre
+           Dia de la semana con mas avistamientos: Sabado
 
-Comando utilizado: 
+Comando utilizado:    cat UFOS-Nov-Dic-2014.psv | cut -d'/' -f1|cut -d'|' -f1|sort | uniq -c | sort -nr | head  -1
+                      cat UFOS-Nov-Dic-2014.psv | cut -d' ' -f1|cut -d'|' -f1| while read DATE TIME rest; do date --date="$DATE" +%A; done|sort | uniq -c | sort -nr | head  -1
 
-Explicaciones: 
+
+Explicaciones: Cortamos para solo quedarnos con los 2 primeros digitos (que senalan el mes) y hacemos el conteo
+               Luego cortamos para que quede la fecha y convertimos al nombre del dia de la semana con un ciclo para luego realizar el conteo.
