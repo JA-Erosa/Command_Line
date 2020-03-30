@@ -12,17 +12,22 @@ Explicaciones: Se cuentan las lineas del archivo y se le resta 2 por las lineas 
 
 Respuesta:CA (California),FL (Florida),WA (Washington),AZ (Arizona),PA (Pensilvania)
 
-Comando utilizado: cat UFOS-Nov-Dic-2014.psv | cut -d'|' -f1-3|rev | cut -d'|' -f1|rev|sort | uniq -c | sort -nr | head  -5
+Comando utilizado:
+
+           cat UFOS-Nov-Dic-2014.psv | cut -d'|' -f1-3|rev | cut -d'|' -f1|rev|sort | uniq -c | sort -nr | head  -5
 
 Explicaciones: Se llama al archivo, se corta todo despues del 3er | (donde se encuentra  el estado), luego al reves para hacer lo mismo pero con el primero, asi solo nos quedan los estados, luego otra vez reverse para ya tenerlo y hacemos el sort por conteo e imprimimos el primero.
 
 ### ¿Cuál es el top 5 de estados por año?
 
-Respuesta: 2014 Nov = CA (California),FL (Florida),TX (Texas),WA (Washington),PA (Pensilvania)
+Respuesta: 
+2014 Nov = CA (California),FL (Florida),TX (Texas),WA (Washington),PA (Pensilvania)
 
-           2014 Dic = CA (California),FL (Florida),WA (Washington),AZ (Arizona),NY (Nueva York)
+2014 Dic = CA (California),FL (Florida),WA (Washington),AZ (Arizona),NY (Nueva York)
 
-Comando utilizado: cat UFO-Nov-2014.tsv | cut -d'      ' -f1-3|rev | cut -d'   ' -f1|rev|sort | uniq -c | sort -nr | head  -5
+Comando utilizado: 
+
+                   cat UFO-Nov-2014.tsv | cut -d'      ' -f1-3|rev | cut -d'   ' -f1|rev|sort | uniq -c | sort -nr | head  -5
 
                    cat UFO-Dic-2014.tsv | cut -d'      ' -f1-3|rev | cut -d'   ' -f1|rev|sort | uniq -c | sort -nr | head  -5
 
@@ -46,11 +51,14 @@ Explicaciones:
 
 ### ¿Cuál es el mes con más avistamientos? ¿El día de la semana?
 
-Respuesta: Mes con mas avistamientos: Noviembre
+Respuesta: 
+Mes con mas avistamientos: Noviembre
 
-           Dia de la semana con mas avistamientos: Sabado
+Dia de la semana con mas avistamientos: Sabado
 
-Comando utilizado:    cat UFOS-Nov-Dic-2014.psv | cut -d'/' -f1|cut -d'|' -f1|sort | uniq -c | sort -nr | head  -1
+Comando utilizado:    
+
+                      cat UFOS-Nov-Dic-2014.psv | cut -d'/' -f1|cut -d'|' -f1|sort | uniq -c | sort -nr | head  -1
 
                       cat UFOS-Nov-Dic-2014.psv | cut -d' ' -f1|cut -d'|' -f1| while read DATE TIME rest; do date --date="$DATE" +%A; done|sort | uniq -c | sort -nr | head  -1
 
